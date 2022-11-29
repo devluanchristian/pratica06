@@ -16,6 +16,7 @@ public class Janela extends JFrame implements ActionListener {
     Container janela = getContentPane();
     setLayout(null);
 
+
     JLabel lbNome = new JLabel("Nome: ");
     JLabel lbEmail = new JLabel("Email: ");
     lbNome.setBounds(50, 40, 50, 20);
