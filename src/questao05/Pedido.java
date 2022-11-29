@@ -2,43 +2,32 @@ package questao05;
 
 import java.util.Random;
 
-
-
 public class Pedido {
-    Random numPedido = new Random();
-    double valorPedido;
-    Cozinha cozinha = new Cozinha(null);
+    private int codigo;
+    private double valorTotal;
+    private Cozinha[] cozinhas = new Cozinha[1];
 
-    public Pedido(Random numPedido, double valorPedido) {
-        this.numPedido = numPedido;
-        this.valorPedido = valorPedido;
+    public Pedido() {
+        this.codigo = new Random().nextInt(999999);
     }
 
-    public Random getNumPedido() {
-        return numPedido;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setNumPedido(Random numPedido) {
-        this.numPedido = numPedido;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public double getValorPedido() {
-        return valorPedido;
+    public void addCozinha(Cozinha cozinha) {
+        cozinhas[0] = cozinha;
     }
 
-    public void setValorPedido(double valorPedido) {
-        this.valorPedido = valorPedido;
+    public void calculaValorPedido() {
+        valorTotal = cozinhas[0].calculaValorTotal();
     }
 
-    public double calculaPedido() {
-        double somar = 0.0;
-        for (int i = 0; i < cozinha.listaPrato.size(); i++) {
-
-            Prato prato = (Prato) cozinha.listaPrato.get(i);
-            somar += somar + prato.valor;
-        }
-
-        return somar;
+    public String detalhesPedido() {
+        return "Detalhes do Pedido: \nNº: " + this.codigo + "\nValor Total: " + this.valorTotal;
     }
-
 }
